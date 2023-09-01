@@ -1,38 +1,98 @@
-.App {
-  text-align: center;
+.container {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: 1fr auto;
+  grid-template-areas: "image sidebar" "slider sidebar";
+  height: 100vh;
+  width: 100vw;
+  background-color: #dadada;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main-image {
+  grid-area: "image";
+  width: 100%;
+  height: 100%;
+  background-position: top center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.upload-image {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.upload-image > h1 {
+  color: hsl(265, 100%, 46%);
+  font-size: 70px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.sidebar {
+  grid-area: "sidebar";
+  /* background-color: hsl(265, 100%, 85%); */
+  background-color: hsl(299.08deg 100% 86.42%);
+  border-left: hsl(265, 100%, 56%);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.sidebar-item {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: hsl(299.08deg 100% 86.42%);
+    /* background-color: hsl(265, 100%, 85%); */
+    padding: 1.5rem 3rem;
+    position: relative;
+    transition: background-color 150ms;
+    font-size: 20px;
+}
+
+.sidebar-item:hover {
+    /* background-color: hsl(265, 100%, 65%); */
+    background-color: hsl(299.08deg 77.95% 75.67%);
+}
+
+.sidebar-item.active {
+    background-color:hsl(299.08deg 91.01% 57.85%);
+     /* hsl(265, 100%, 70%); */
+}
+
+.sidebar-item::after {
+    content: " ";
+    position: absolute;
+    width: 80%;
+    left: 10%;
+    bottom: 0;
+    height: 2px;
+    background-color: hsl(299.08deg 91.01% 57.85%);
+}
+
+.sidebar-item:last-child::after {
+    display: none;
+}
+
+.slider-container {
+    grid-area: "slider";
+    margin-top: 2rem;
+    padding: 2rem;
+}
+
+.slider {
+    width: 100%;
+    cursor: pointer;
+}
+
+.download {
+    border: none;
+    outline: none;
+    font-size: 20px;
+    background-color: black;
+    color: white;
+    padding: 10px 0;
+    margin: 20px 0;
+    cursor: pointer;
 }
